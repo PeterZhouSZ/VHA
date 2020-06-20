@@ -148,34 +148,6 @@ def save_3d_hmap(hmap, path):
     imageio.mimsave(path, frames, macro_block_size=None)
 
 
-def save_3d_hmap2(hmap, path):
-    # type: (Union[np.ndarray, torch.Tensor], str) -> None
-    """
-    Saves a 3D heatmap as MP4 video with JET colormap.
-    :param hmap: 3D heatmap with values in [0,1] and shape (D, H, W)
-    :param path: desired path for the output video
-    """
-    import cv2
-    import imageio
-
-    hmap = interpolate(hmap.unsqueeze(0), scale_factor=4, mode='bilinear', align_corners=False).squeeze()
-
-
-    if not (type(hmap) is np.ndarray):
-        try:
-            hmap = hmap.cpu().numpy()
-        except:
-            hmap = hmap.detach().cpu().numpy()
-    hmap[hmap < 0] = 0
-    hmap[hmap > 1] = 1
-    hmap = (hmap * 255).astype(np.uint8)
-    frames = [cv2.applyColorMap(x, colormap=cv2.COLORMAP_JET) for x in hmap]
-
-    for d, x in enumerate(frames):
-        frames[d] = cv2.putText(frames[d], f'{d}', (10, 120), 1, 1, (0, 0, 0), 2, cv2.LINE_AA)[:, :, ::-1]
-
-    imageio.mimsave(path, frames)
-
 
 def gkern(d, h, w, center, s=2, device='cuda'):
     # type: (int, int, int, Union[List[int], Tuple[int, int, int]], float) -> torch.Tensor

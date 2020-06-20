@@ -51,7 +51,7 @@ class JTAHMapDS(Dataset):
         """
         self.cnf = cnf
         self.mode = mode
-        assert mode in {'train', 'val'}, '`mode` must be \'train\' or \'val\''
+        assert mode in {'train', 'val', 'test'}, '`mode` must be \'train\' or \'val\''
 
         self.sf_pairs = []
         k = 10 if self.mode == 'train' else 100
