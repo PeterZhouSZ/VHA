@@ -2,9 +2,6 @@
 .idea/
 *__pycache__/
 
-### Pytorch model weights
-*.pth
-
 ### images
 *.jpg
 *.jpeg
