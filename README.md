@@ -1,7 +1,8 @@
 # Volumetric Heatmap Autoencoder
 ### Accepted to CVPR 2020
 
-This repo contains the code related to the paper [Compressed Volumetric Heatmaps for Multi-Person 3D Pose Estimation](https://arxiv.org/abs/2004.00329) accepted to CVPR 2020 with the instructions for training the Volumetri Heatmap Autencoder on JTA dataset.
+This repo contains the code related to the paper [Compressed Volumetric Heatmaps for Multi-Person 3D Pose Estimation](https://arxiv.org/abs/2004.00329) accepted to CVPR 2020 with the instructions for training the Volumetri Heatmap Autencoder on JTA dataset. [Here](https://github.com/fabbrimatteo/LoCO)
+you can also find the code for training the full pipeline.
 
 ## Intructions
 - Download the [JTA dataset](http://aimagelab.ing.unimore.it/jta)
